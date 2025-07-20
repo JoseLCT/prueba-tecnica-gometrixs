@@ -4,10 +4,9 @@ WORKDIR /app
 
 COPY package*.json ./
 COPY prisma ./prisma
-
-RUN npm install
-
 COPY . .
+
+RUN npm install && npm run build
 
 COPY wait-for-it.sh ./
 COPY entrypoint.sh ./
